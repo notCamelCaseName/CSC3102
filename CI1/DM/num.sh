@@ -35,12 +35,18 @@ for arg in $args; do
 		echo Erreur : $arg n\'est pas un entier positif
 		./readme.sh
 	else
-		case &arg in
+		case $op in
 			l) ./len.sh $arg;;
 			m) ./mirror.sh $arg;;
 			s) ./sum-digit.sh $arg;;
 			d) ./decimal_to_binary.sh $arg;;
-			b) ./ binary_to_decimal.sh $arg;;
+			b) ./binary_to_decimal.sh $arg;;
+			i) while [ 1 ]; do
+				read op args
+				if [ $op = "c" ]; then exit
+				else ./num.sh $op $args
+				fi
+			done;;
 			*) echo Erreur : opération inconue; ./readme.sh;;
 		esac
 	fi
