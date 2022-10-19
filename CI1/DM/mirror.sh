@@ -1,12 +1,11 @@
 #!/bin/bash
 
-res=$(expr $1 % 10)
-n=$(expr $1 / 10)
+res=""
+n=$1
 
 
 while [ $n -gt 0 ]; do
-	res=$(expr $res \* 10)
-	res=$(expr $res + $(expr $n % 10) )
+	res=$res$(expr $n % 10)
 	n=$(expr $n / 10)
 done
 
